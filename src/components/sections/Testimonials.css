@@ -1,0 +1,19 @@
+/* Custom styles for Swiper pagination to match the old design */
+.swiper-pagination {
+    margin-top: 24px !important; /* Use !important to override default inline styles if necessary */
+    position: static !important; /* Override default positioning */
+}
+
+.swiper-pagination-bullet {
+    width: 15px !important;
+    height: 15px !important;
+    border: 1px solid #CCCCCC;
+    background: transparent;
+    opacity: 1;
+    transition: .5s;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
