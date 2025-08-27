@@ -1,4 +1,5 @@
 import React from 'react';
+import {siteInfo} from '@/data/siteInfo';
 
 const Topbar = () => {
     return (
@@ -9,24 +10,25 @@ const Topbar = () => {
                     <div className="col-lg-7 px-5 text-start">
                         <div className="h-100 d-inline-flex align-items-center py-3 me-4">
                             <small className="fa fa-map-marker-alt text-primary me-2"></small>
-                            <small>Чебоксары бул. Анатолия Миттова, 21А, Чебоксары г-ж 58</small>
+                            <small>{siteInfo.address}</small>
                         </div>
                         <div className="h-100 d-inline-flex align-items-center py-3">
                             <small className="far fa-clock text-primary me-2"></small>
-                            <small>Пн - Пт : 09.00 - 21.00</small>
+                            <small>{siteInfo.workingHours.topbar}</small>
                         </div>
                     </div>
                     <div className="col-lg-5 px-5 text-end">
                         <div className="h-100 d-inline-flex align-items-center py-3 me-4">
                             <small className="fa fa-phone-alt text-primary me-2"></small>
-                            <small>+7 (927) 858-17-08</small>
+                            <small>{siteInfo.phone}</small>
                         </div>
                         <div className="h-100 d-inline-flex align-items-center">
-                            <a className="btn btn-sm-square bg-white text-primary me-1" href="https://t.me/KUMSKIYSTO"
+                            <a className="btn btn-sm-square bg-white text-primary me-1"
+                               href={siteInfo.socials.telegramChannel}
                                target="_blank" rel="noopener noreferrer" title="Telegram Канал"><i
                                 className="fab fa-telegram-plane"></i></a>
                             <a className="btn btn-sm-square bg-white text-primary me-0"
-                               href="https://t.me/Oleg_Andriyanovich" target="_blank" rel="noopener noreferrer"
+                               href={siteInfo.socials.telegramPersonal} target="_blank" rel="noopener noreferrer"
                                title="Написать в Telegram"><i className="far fa-comment-alt"></i></a>
                         </div>
                     </div>
