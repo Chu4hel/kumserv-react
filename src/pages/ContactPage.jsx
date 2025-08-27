@@ -1,11 +1,13 @@
 import React from 'react';
+import PageHeader from '@/components/layout/PageHeader';
+import ContactInfo from '@/components/sections/ContactInfo';
 
 const ContactPage = () => {
     return (
-        <div>
-            <h1>Контакты</h1>
-            {/* TODO: Add content from contact.html */}
-        </div>
+        <>
+            <PageHeader title="Контакты" breadcrumb="Контакты"/>
+            <ContactInfo/>
+        </>
     );
 };
 
