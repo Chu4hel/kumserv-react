@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const Services = () => {
+  // Состояние для отслеживания активной вкладки. Значение - ID вкладки.
   const [activeTab, setActiveTab] = useState('tab-pane-1');
 
+  // Хук для отслеживания видимости компонента на экране.
+  // `triggerOnce: true` означает, что анимация сработает только один раз.
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
+  // Обработчик клика по вкладке.
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
   };
 
+  // Стиль для всех панелей вкладок, чтобы они занимали одну и ту же область в гриде.
   const tabPaneStyle = {
     gridArea: '1 / 1',
   };
@@ -14,13 +25,19 @@ const Services = () => {
   return (
     <>
       {/* Service Start */}
-      <div className="container-xxl service py-5">
+      <div ref={ref} className="container-xxl service py-5">
         <div className="container">
-          <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+          <div
+            className={`text-center ${inView ? 'animated fadeInUp' : 'animate-on-scroll'}`}
+            style={inView ? { animationDelay: '0.1s' } : {}}
+          >
             <h6 className="text-primary text-uppercase">// Наши услуги //</h6>
             <h1 className="mb-5">Наши популярные услуги</h1>
           </div>
-          <div className="row g-4 wow fadeInUp" data-wow-delay="0.3s">
+          <div
+            className={`row g-4 ${inView ? 'animated fadeInUp' : 'animate-on-scroll'}`}
+            style={inView ? { animationDelay: '0.3s' } : {}}
+          >
             <div className="col-lg-4">
               <div className="nav w-100 nav-pills me-4">
                 <button
@@ -58,6 +75,12 @@ const Services = () => {
               </div>
             </div>
             <div className="col-lg-8">
+              {/* 
+                Этот контейнер использует `display: grid`, чтобы все дочерние вкладки (`tab-pane`)
+                накладывались друг на друга. Это решает проблему "прыгающей" высоты,
+                так как размер контейнера определяется самой высокой вкладкой.
+                Видимость нужной вкладки контролируется через классы `show active`.
+              */}
               <div className="tab-content w-100" style={{ display: 'grid' }}>
                 <div className={`tab-pane fade ${activeTab === 'tab-pane-1' ? 'show active' : ''}`} style={tabPaneStyle}>
                   {/* Content for tab 1 */}

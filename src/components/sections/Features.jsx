@@ -1,13 +1,22 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const Features = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
   return (
     <>
       {/* Service Start */}
-      <div className="container-xxl py-5">
+      <div ref={ref} className="container-xxl py-5">
         <div className="container">
           <div className="row g-4">
-            <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div
+              className={`col-lg-4 col-md-6 ${inView ? 'animated fadeInUp' : 'animate-on-scroll'}`}
+              style={inView ? { animationDelay: '0.1s' } : {}}
+            >
               <div className="d-flex py-5 px-4">
                 <i className="fa fa-certificate fa-3x text-primary flex-shrink-0"></i>
                 <div className="ps-4">
@@ -17,7 +26,10 @@ const Features = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div
+              className={`col-lg-4 col-md-6 ${inView ? 'animated fadeInUp' : 'animate-on-scroll'}`}
+              style={inView ? { animationDelay: '0.3s' } : {}}
+            >
               <div className="d-flex bg-light py-5 px-4">
                 <i className="fa fa-users-cog fa-3x text-primary flex-shrink-0"></i>
                 <div className="ps-4">
@@ -27,7 +39,10 @@ const Features = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div
+              className={`col-lg-4 col-md-6 ${inView ? 'animated fadeInUp' : 'animate-on-scroll'}`}
+              style={inView ? { animationDelay: '0.5s' } : {}}
+            >
               <div className="d-flex py-5 px-4">
                 <i className="fa fa-tools fa-3x text-primary flex-shrink-0"></i>
                 <div className="ps-4">

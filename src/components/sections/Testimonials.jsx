@@ -40,7 +40,10 @@ const Testimonials = () => {
     },
   ];
 
-  // Duplicate the testimonials to ensure smooth looping in Swiper
+  // Для корректной работы режима `loop` (бесконечная прокрутка) в Swiper,
+  // особенно с опцией `centeredSlides` и `slidesPerView: 3`,
+  // требуется больше слайдов, чем есть изначально (4).
+  // Простое дублирование массива решает эту проблему.
   const testimonials = [...testimonialData, ...testimonialData];
 
   return (

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const Booking = () => {
+  // Единое состояние для всех полей формы.
+  // Это делает управление формой централизованным.
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -9,6 +12,14 @@ const Booking = () => {
     specialRequest: ''
   });
 
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
+  // Универсальный обработчик для всех полей ввода.
+  // Он определяет, какое поле изменилось, по атрибуту `name`
+  // и обновляет соответствующее свойство в состоянии `formData`.
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -17,17 +28,22 @@ const Booking = () => {
     }));
   };
 
+  // Обработчик отправки формы.
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically send the data to a server
+    e.preventDefault(); // Предотвращаем стандартное поведение формы (перезагрузку страницы).
+    console.log('Form submitted:', formData); // Выводим данные в консоль для демонстрации.
+    // В реальном приложении здесь будет отправка данных на сервер.
     alert('Запись отправлена! (Данные в консоли)');
   };
 
   return (
     <>
       {/* Booking Start */}
-      <div className="container-fluid bg-secondary booking my-5 wow fadeInUp" data-wow-delay="0.1s">
+      <div
+        ref={ref}
+        className={`container-fluid bg-secondary booking my-5 ${inView ? 'animated fadeInUp' : 'animate-on-scroll'}`}
+        style={inView ? { animationDelay: '0.1s' } : {}}
+      >
         <div className="container">
           <div className="row gx-5">
             <div className="col-lg-6 py-5">
@@ -37,7 +53,10 @@ const Booking = () => {
               </div>
             </div>
             <div className="col-lg-6">
-              <div className="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn" data-wow-delay="0.6s">
+              <div
+                className={`bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 ${inView ? 'animated zoomIn' : 'animate-on-scroll'}`}
+                style={inView ? { animationDelay: '0.6s' } : {}}
+              >
                 <h1 className="text-white mb-4">Записаться на услугу</h1>
                 <form onSubmit={handleSubmit}>
                   <div className="row g-3">
