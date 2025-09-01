@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import HomePage from '@/pages/HomePage';
 import AboutPage from '@/pages/AboutPage';
 import ServicePage from '@/pages/ServicePage';
@@ -8,25 +8,11 @@ import TestimonialPage from '@/pages/TestimonialPage';
 import Topbar from '@/components/layout/Topbar';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import CustomNavLink from '@/components/layout/CustomNavLink'; // Ensure this is imported if used
 import React, {useEffect} from 'react'; // Import useEffect
 import './App.css';
 
 function App() {
-  return (
-    <HashRouter>
-      <Topbar />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/service" element={<ServicePage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/booking" element={<BookingPage />} />
-        <Route path="/testimonial" element={<TestimonialPage />} />
-      </Routes>
-      <Footer />
-    </HashRouter>
-  );
     useEffect(() => {
         const spinner = document.getElementById('spinner');
         if (spinner) {
@@ -37,6 +23,21 @@ function App() {
         }
     }, []); // Empty dependency array ensures this effect runs only once on mount
 
+    return (
+        <BrowserRouter>
+            <Topbar/>
+            <Navbar/>
+            <Routes>
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/about" element={<AboutPage/>}/>
+                <Route path="/service" element={<ServicePage/>}/>
+                <Route path="/contact" element={<ContactPage/>}/>
+                <Route path="/booking" element={<BookingPage/>}/>
+                <Route path="/testimonial" element={<TestimonialPage/>}/>
+            </Routes>
+            <Footer/>
+        </BrowserRouter>
+    );
 }
 
 export default App;
