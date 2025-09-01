@@ -139,11 +139,10 @@ const Booking = () => {
                                                 type="email"
                                                 name="client_email"
                                                 className="form-control border-0"
-                                                placeholder="Ваш Email"
+                                                placeholder="Ваш Email (необязательно)"
                                                 style={{ height: '55px' }}
                                                 value={formData.client_email}
                                                 onChange={handleChange}
-                                                required
                                             />
                                         </div>
                                         <div className="col-12 col-sm-6">
