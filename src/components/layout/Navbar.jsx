@@ -36,7 +36,8 @@ const Navbar = () => {
         style={{ top: isSticky ? '0px' : '-100px' }}
       >
         <CustomNavLink to="/" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
-          <h2 className="m-0 text-primary"><i className="fa fa-car me-3"></i>Кумский Сервис</h2>
+          <img src="/img/logo.svg" alt="Кумский Сервис" style={{ height: '45px', marginRight: '10px' }} />
+          <h2 className="m-0 text-primary">Кумский Сервис</h2>
         </CustomNavLink>
         <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse">
