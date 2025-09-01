@@ -4,6 +4,7 @@ import { getServices, createBooking } from '@/api/serviceFlow';
 
 const Booking = () => {
     const [services, setServices] = useState([]);
+    const [isApiDown, setIsApiDown] = useState(false);
     const [formData, setFormData] = useState({
         client_name: '',
         client_email: '',
@@ -25,9 +26,20 @@ const Booking = () => {
             try {
                 const servicesData = await getServices();
                 setServices(servicesData);
+                setIsApiDown(false);
             } catch (error) {
                 console.error("Failed to load services:", error);
-                setFormMessage({ type: 'error', text: 'Не удалось загрузить список услуг.' });
+                setIsApiDown(true);
+                const defaultServices = [
+                    { id: 'default-1', name: 'Техническое обслуживание' },
+                    { id: 'default-2', name: 'Диагностика' },
+                    { id: 'default-3', name: 'Шиномонтаж' }
+                ];
+                setServices(defaultServices);
+                setFormMessage({
+                    type: 'error',
+                    text: 'Форма временно не работает. Пожалуйста, для записи воспользуйтесь телефоном.'
+                });
             }
         };
         fetchServices();
@@ -43,6 +55,15 @@ const Booking = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (isApiDown) {
+            setFormMessage({
+                type: 'error',
+                text: 'Форма временно не работает. Пожалуйста, для записи воспользуйтесь телефоном.'
+            });
+            return;
+        }
+
         setFormMessage({ type: '', text: '' });
 
         if (!formData.service_id || !formData.date || !formData.time) {
@@ -193,7 +214,9 @@ const Booking = () => {
                                             </div>
                                         )}
                                         <div className="col-12">
-                                            <button className="btn btn-secondary w-100 py-3" type="submit">Записаться</button>
+                                            <button className="btn btn-secondary w-100 py-3" type="submit" disabled={isApiDown}>
+                                                Записаться
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
