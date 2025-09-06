@@ -1,5 +1,5 @@
-const API_BASE_URL = 'https://newyear.h1n.ru/api/public/v1';
-const API_KEY = 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6'; // TODO: Move to .env file
+const API_BASE_URL = 'https://serviceflow-api.onrender.com/api/public/v1';
+const API_KEY = 'd7b1c0a6-5395-4787-a492-6399c406cc9a'; // TODO: Move to .env file
 
 /**
  * Fetches the list of available services.
