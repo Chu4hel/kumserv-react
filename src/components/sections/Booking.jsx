@@ -1,10 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useInView} from 'react-intersection-observer';
-import {getServices, createBooking} from '@/api/serviceFlow';
+import {createBooking, getServices} from '@/api/serviceFlow';
+import {siteInfo} from '@/data/siteInfo';
 
 const Booking = () => {
     const [services, setServices] = useState([]);
     const [isApiDown, setIsApiDown] = useState(false);
+    const [workStart, workEnd] = siteInfo.workingHours.weekdays.hours.split(' - ');
+
     const [formData, setFormData] = useState({
         client_name: '',
         client_email: '',
@@ -15,6 +18,8 @@ const Booking = () => {
         notes: ''
     });
     const [formMessage, setFormMessage] = useState({type: '', text: ''});
+    const today = new Date().toISOString().split('T')[0];
+    const [minTime, setMinTime] = useState(workStart);
 
     const {ref, inView} = useInView({
         threshold: 0.2,
@@ -47,10 +52,27 @@ const Booking = () => {
 
     const handleChange = (e) => {
         const {name, value} = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
+        let newFormData = {...formData, [name]: value};
+        let newMinTime = minTime;
+
+        if (name === 'date') {
+            const todayStr = new Date().toISOString().split('T')[0];
+            if (value === todayStr) {
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                newMinTime = `${hours}:${minutes}`;
+            } else {
+                newMinTime = workStart;
+            }
+
+            if (newFormData.time && newFormData.time < newMinTime) {
+                newFormData.time = '';
+            }
+            setMinTime(newMinTime);
+        }
+
+        setFormData(newFormData);
     };
 
     const handleSubmit = async (e) => {
@@ -189,6 +211,7 @@ const Booking = () => {
                                                 style={{height: '55px'}}
                                                 value={formData.date}
                                                 onChange={handleChange}
+                                                min={today}
                                                 required
                                             />
                                         </div>
@@ -200,6 +223,8 @@ const Booking = () => {
                                                 style={{height: '55px'}}
                                                 value={formData.time}
                                                 onChange={handleChange}
+                                                min={minTime}
+                                                max={workEnd}
                                                 required
                                             />
                                         </div>
