@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useInView} from 'react-intersection-observer';
+import {Link} from 'react-router-dom'; // Импортируем Link
 import {createBooking, getServices} from '@/api/serviceFlow';
 import {siteInfo} from '@/data/siteInfo';
 
@@ -258,7 +259,7 @@ const Booking = () => {
                                                     required
                                                 />
                                                 <label className="form-check-label" htmlFor="consentCheck" style={{fontSize: '0.8rem'}}>
-                                                    Я даю согласие на обработку персональных данных в соответствии с 152-ФЗ.
+                                                    Я даю согласие на обработку персональных данных в соответствии с <Link to="/privacy-policy" target="_blank" className="text-white"><u>Политикой конфиденциальности</u></Link>.
                                                 </label>
                                             </div>
                                         </div>

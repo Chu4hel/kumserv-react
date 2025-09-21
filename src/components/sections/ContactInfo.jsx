@@ -90,7 +90,7 @@ const ContactInfo = () => {
                                                required
                                            />
                                            <label className="form-check-label" htmlFor="contactConsentCheck">
-                                               Я даю согласие на обработку персональных данных согласно 152-ФЗ.
+                                               Я даю согласие на обработку персональных данных в соответствии с <Link to="/privacy-policy" target="_blank">Политикой конфиденциальности</Link>.
                                            </label>
                                        </div>
                                    </div>
