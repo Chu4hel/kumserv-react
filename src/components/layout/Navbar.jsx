@@ -53,6 +53,7 @@ const Navbar = () => {
               <div className="dropdown-menu fade-up m-0">
                 <CustomNavLink to="/booking" className="dropdown-item">Запись</CustomNavLink>
                 <CustomNavLink to="/testimonial" className="dropdown-item">Отзывы</CustomNavLink>
+                <CustomNavLink to="/privacy-policy" className="dropdown-item">Политика конфиденциальности</CustomNavLink>
               </div>
             </div>
             <CustomNavLink to="/contact" className="nav-item nav-link">Контакты</CustomNavLink>
