@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="ru">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>КУМСКИЙ Сервис</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="автосервис, ремонт авто, диагностика, кузовной ремонт, Чебоксары" name="keywords">
-    <meta content="Кумский Сервис - качественный ремонт и обслуживание автомобилей в Чебоксарах. Диагностика, ремонт двигателя, кузовные работы и многое другое." name="description">
+    <meta content="Кумский Сервис - качественный ремонт и обслуживание автомобилей в Чебоксарах. Диагностика, ремонт двигателя, кузовные работы и многое другое."
+          name="description">
 
     <!-- Favicon -->
     <link href="/img/logo.svg" rel="icon" type="image/svg+xml">
@@ -13,7 +14,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap"
+          rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -22,23 +24,60 @@
     <!-- Libraries Stylesheet -->
     <link href="/lib/animate/animate.min.css" rel="stylesheet">
     <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet"/>
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
-  </head>
-  <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Загрузка...</span>
-        </div>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, 'script', 'https://mc.webvisor.org/metrika/tag_ww.js?id=104227617', 'ym');
+
+        ym(104227617, 'init', {
+            ssr: true,
+            webvisor: true,
+            clickmap: true,
+            ecommerce: "dataLayer",
+            accurateTrackBounce: true,
+            trackLinks: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/104227617" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <meta property="og:title" content="Кумский Сервис - Автосервис в Чебоксарах"/>
+    <meta property="og:description"
+          content="Качественный ремонт и обслуживание автомобилей. Диагностика, ремонт двигателя, кузовные работы."/>
+    <meta property="og:image" content="https://кумский-сервис.рф/img/og-image.jpg"/>
+    <meta property="og:url" content="https://кумский-сервис.рф/"/>
+    <meta property="og:type" content="website"/>
+</head>
+<body>
+<!-- Spinner Start -->
+<div id="spinner"
+     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Загрузка...</span>
     </div>
-    <!-- Spinner End -->
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+</div>
+<!-- Spinner End -->
+<div id="root"></div>
+<script type="module" src="/src/main.jsx"></script>
+</body>
 </html>
