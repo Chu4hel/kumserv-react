@@ -60,6 +60,46 @@ const ContactInfo = () => {
                                 свяжитесь с нами по телефону <a href="tel:+79278581708">+7 (927) 858-17-08</a> или
                                 напишите в <a href="https://t.me/Oleg_Andriyanovich" target="_blank"
                                               rel="noopener noreferrer">Telegram</a>.</p>
+                            {/*
+                                TODO: Инструкция по активации формы обратной связи.
+
+                                Когда будете готовы включить эту форму, выполните следующие шаги:
+
+                                1. В этом файле (ContactInfo.jsx) импортируйте useState:
+                                   import React, { useState } from 'react';
+
+                                2. Внутри компонента ContactInfo добавьте состояния для формы:
+                                   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+                                   const [isConsentChecked, setIsConsentChecked] = useState(false);
+                                   const [formMessage, setFormMessage] = useState({ type: '', text: '' });
+
+                                3. Напишите обработчики `handleChange` и `handleSubmit` по аналогии с компонентом Booking.jsx.
+
+                                4. Удалите атрибут `disabled` со всех полей <input> и <textarea>.
+                                   Привяжите их `value` и `onChange` к состоянию `formData`.
+
+                                5. Перед кнопкой отправки вставьте этот блок с чекбоксом:
+                                   <div className="col-12 mb-3 text-start">
+                                       <div className="form-check">
+                                           <input
+                                               className="form-check-input"
+                                               type="checkbox"
+                                               id="contactConsentCheck"
+                                               checked={isConsentChecked}
+                                               onChange={(e) => setIsConsentChecked(e.target.checked)}
+                                               required
+                                           />
+                                           <label className="form-check-label" htmlFor="contactConsentCheck">
+                                               Я даю согласие на обработку персональных данных согласно 152-ФЗ.
+                                           </label>
+                                       </div>
+                                   </div>
+
+                                6. Замените кнопку отправки на эту, чтобы она зависела от чекбокса:
+                                   <button className="btn btn-primary w-100 py-3" type="submit" disabled={!isConsentChecked}>
+                                       Отправить сообщение
+                                   </button>
+                            */}
                             <form>
                                 <div className="row g-3">
                                     <div className="col-md-6">

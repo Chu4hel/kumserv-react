@@ -18,6 +18,7 @@ const Booking = () => {
         notes: ''
     });
     const [formMessage, setFormMessage] = useState({type: '', text: ''});
+    const [isConsentChecked, setIsConsentChecked] = useState(false);
     const today = new Date().toISOString().split('T')[0];
     const [minTime, setMinTime] = useState(workStart);
 
@@ -118,6 +119,7 @@ const Booking = () => {
                 time: '',
                 notes: ''
             });
+            setIsConsentChecked(false); // Сброс чекбокса после успешной отправки
         } catch (error) {
             console.error('Booking submission failed:', error);
             setFormMessage({type: 'error', text: `Ошибка отправки: ${error.message}`});
@@ -245,9 +247,24 @@ const Booking = () => {
                                                 </div>
                                             </div>
                                         )}
+                                        <div className="col-12 mb-3 text-start text-white">
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="checkbox"
+                                                    id="consentCheck"
+                                                    checked={isConsentChecked}
+                                                    onChange={(e) => setIsConsentChecked(e.target.checked)}
+                                                    required
+                                                />
+                                                <label className="form-check-label" htmlFor="consentCheck" style={{fontSize: '0.8rem'}}>
+                                                    Я даю согласие на обработку персональных данных в соответствии с 152-ФЗ.
+                                                </label>
+                                            </div>
+                                        </div>
                                         <div className="col-12">
                                             <button className="btn btn-secondary w-100 py-3" type="submit"
-                                                    disabled={isApiDown}>
+                                                    disabled={isApiDown || !isConsentChecked}>
                                                 Записаться
                                             </button>
                                         </div>
