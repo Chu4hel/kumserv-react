@@ -1,16 +1,19 @@
 import {BrowserRouter, Routes, Route, useLocation} from 'react-router-dom';
-import HomePage from '@/pages/HomePage';
-import AboutPage from '@/pages/AboutPage';
-import ServicePage from '@/pages/ServicePage';
-import ContactPage from '@/pages/ContactPage';
-import BookingPage from '@/pages/BookingPage';
-import TestimonialPage from '@/pages/TestimonialPage';
+import React, {useEffect, lazy, Suspense} from 'react'; // Import useEffect, lazy, Suspense
+
+// Статические импорты
 import Topbar from '@/components/layout/Topbar';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import CustomNavLink from '@/components/layout/CustomNavLink'; // Ensure this is imported if used
-import React, {useEffect} from 'react'; // Import useEffect
 import './App.css';
+
+// Ленивые импорты для страниц
+const HomePage = lazy(() => import('@/pages/HomePage'));
+const AboutPage = lazy(() => import('@/pages/AboutPage'));
+const ServicePage = lazy(() => import('@/pages/ServicePage'));
+const ContactPage = lazy(() => import('@/pages/ContactPage'));
+const BookingPage = lazy(() => import('@/pages/BookingPage'));
+const TestimonialPage = lazy(() => import('@/pages/TestimonialPage'));
 
 // Компонент для отслеживания, который мы вставим внутрь BrowserRouter
 function PageTracker() {
@@ -28,6 +31,16 @@ function PageTracker() {
     return null; // Компонент ничего не рендерит, он просто выполняет логику
 }
 
+// Компонент-заглушка для Suspense, пока грузится страница
+function LoadingFallback() {
+    return (
+        <div className="w-100 vh-100 d-flex align-items-center justify-content-center">
+            <div className="spinner-border text-primary" style={{width: '3rem', height: '3rem'}} role="status">
+                <span className="sr-only">Загрузка...</span>
+            </div>
+        </div>
+    );
+}
 
 function App() {
     useEffect(() => {
@@ -46,14 +59,16 @@ function App() {
 
             <Topbar/>
             <Navbar/>
-            <Routes>
-                <Route path="/" element={<HomePage/>}/>
-                <Route path="/about" element={<AboutPage/>}/>
-                <Route path="/service" element={<ServicePage/>}/>
-                <Route path="/contact" element={<ContactPage/>}/>
-                <Route path="/booking" element={<BookingPage/>}/>
-                <Route path="/testimonial" element={<TestimonialPage/>}/>
-            </Routes>
+            <Suspense fallback={<LoadingFallback/>}>
+                <Routes>
+                    <Route path="/" element={<HomePage/>}/>
+                    <Route path="/about" element={<AboutPage/>}/>
+                    <Route path="/service" element={<ServicePage/>}/>
+                    <Route path="/contact" element={<ContactPage/>}/>
+                    <Route path="/booking" element={<BookingPage/>}/>
+                    <Route path="/testimonial" element={<TestimonialPage/>}/>
+                </Routes>
+            </Suspense>
             <Footer/>
         </BrowserRouter>
     );
