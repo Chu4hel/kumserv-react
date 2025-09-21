@@ -39,7 +39,11 @@ const Carousel = () => {
                                         больше<i className="fa fa-arrow-right ms-3"></i></a>
                                 </div>
                                 <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
-                                    <img className="img-fluid" src="/img/carousel-1.png" alt=""/>
+                                    <picture>
+                                        <source srcSet="/img/carousel-1.webp" type="image/webp"/>
+                                        <source srcSet="/img/carousel-1.png" type="image/png"/>
+                                        <img className="img-fluid" src="/img/carousel-1.png" alt=""/>
+                                    </picture>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +63,11 @@ const Carousel = () => {
                                         больше<i className="fa fa-arrow-right ms-3"></i></a>
                                 </div>
                                 <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
-                                    <img className="img-fluid" src="/img/carousel-2.png" alt=""/>
+                                    <picture>
+                                        <source srcSet="/img/carousel-2.webp" type="image/webp"/>
+                                        <source srcSet="/img/carousel-2.png" type="image/png"/>
+                                        <img className="img-fluid" src="/img/carousel-2.png" alt=""/>
+                                    </picture>
                                 </div>
                             </div>
                         </div>
