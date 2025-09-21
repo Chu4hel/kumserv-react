@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: 'https://www.кумский-сервис.рф',
+      hostname: 'https://кумский-сервис.рф',
       dynamicRoutes: [
         '/about',
         '/booking',
