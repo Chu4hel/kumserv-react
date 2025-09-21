@@ -15,6 +15,7 @@ const ContactPage = lazy(() => import('@/pages/ContactPage'));
 const BookingPage = lazy(() => import('@/pages/BookingPage'));
 const TestimonialPage = lazy(() => import('@/pages/TestimonialPage'));
 const PrivacyPolicyPage = lazy(() => import('@/pages/PrivacyPolicyPage'));
+const ServiceDetailPage = lazy(() => import('@/pages/ServiceDetailPage'));
 
 // Компонент для отслеживания, который мы вставим внутрь BrowserRouter
 function PageTracker() {
@@ -65,6 +66,7 @@ function App() {
                     <Route path="/" element={<HomePage/>}/>
                     <Route path="/about" element={<AboutPage/>}/>
                     <Route path="/service" element={<ServicePage/>}/>
+                    <Route path="/service/:serviceId" element={<ServiceDetailPage/>}/>
                     <Route path="/contact" element={<ContactPage/>}/>
                     <Route path="/booking" element={<BookingPage/>}/>
                     <Route path="/testimonial" element={<TestimonialPage/>}/>
