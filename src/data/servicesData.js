@@ -12,7 +12,10 @@ export const servicesData = [
             '</ul>' +
             'По результатам вы получаете полную картину состояния вашего авто и честные рекомендации по ремонту с указанием стоимости. Точная диагностика — залог экономии ваших денег и времени.',
         icon: 'fa-car-side',
-        image: '/img/service-1.jpg'
+        image: {
+            webp: '/img/service-1.webp',
+            fallback: '/img/service-1.png'
+        }
     },
     {
         id: 2,
@@ -46,7 +49,11 @@ export const servicesData = [
             '</ul>' +
             'Мы работаем аккуратно, чтобы не повредить ваши диски и шины. Запишитесь на шиномонтаж заранее, чтобы избежать очередей в сезон!',
         icon: 'fa-cog',
-        image: '/img/service-3.jpg'
+        image: {
+            avif: '/img/service-3.avif',
+            webp: '/img/service-3.webp',
+            fallback: '/img/service-3.png'
+        }
     },
     {
         id: 4,

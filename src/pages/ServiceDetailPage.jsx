@@ -2,6 +2,7 @@ import React from 'react';
 import {useParams, Link} from 'react-router-dom';
 import {servicesData} from '@/data/servicesData';
 import PageHeader from '@/components/layout/PageHeader';
+import ServiceImage from '@/components/common/ServiceImage';
 
 const ServiceDetailPage = () => {
     const {serviceId} = useParams();
@@ -33,7 +34,7 @@ const ServiceDetailPage = () => {
                             <h1 className="mb-4">{service.title}</h1>
                             <p className="mb-4 fst-italic">{service.shortDescription}</p>
                             <div className="mb-4">
-                                <img className="img-fluid w-100" src={service.image} alt={service.title}/>
+                                <ServiceImage service={service} className="img-fluid w-100"/>
                             </div>
                             <div dangerouslySetInnerHTML={{__html: service.fullDescription}}></div>
                             <p>Мы используем только качественные запчасти и современное оборудование для достижения

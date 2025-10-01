@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useInView} from 'react-intersection-observer';
 import {Link} from 'react-router-dom';
 import {servicesData} from '@/data/servicesData';
+import ServiceImage from '@/components/common/ServiceImage';
 
 const Services = () => {
     // Состояние для отслеживания активной вкладки. Значение - ID вкладки.
@@ -60,10 +61,10 @@ const Services = () => {
                                         <div className="row g-4">
                                             <div className="col-md-6" style={{minHeight: '350px'}}>
                                                 <div className="position-relative h-100">
-                                                    <img
+                                                    <ServiceImage
+                                                        service={service}
                                                         className="position-absolute img-fluid w-100 h-100"
-                                                        src={service.image} style={{objectFit: 'cover'}}
-                                                        alt={service.title}
+                                                        style={{objectFit: 'cover'}}
                                                     />
                                                 </div>
                                             </div>
