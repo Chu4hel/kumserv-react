@@ -7,14 +7,14 @@ export const siteInfo = {
         tech: 'tech@кумский-сервис.рф',
     },
     workingHours: {
-        topbar: 'Пн - Вс: 08:00 - 19:00',
+        topbar: 'Пн - Вс: 09:00 - 19:00',
         weekdays: {
             label: 'Понедельник - Пятница:',
-            hours: '08:00 - 19:00'
+            hours: '09:00 - 19:00'
         },
         weekends: {
             label: 'Суббота - Воскресенье:',
-            hours: '08:00 - 19:00'
+            hours: '10:00 - 17:00'
         }
     },
     socials: {

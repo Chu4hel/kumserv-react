@@ -1,0 +1,27 @@
+# Включаем модуль для преобразования URL
+RewriteEngine On
+
+# --- БЛОК №1: Редирект с www на без-www ---
+# Проверяем, что запрос пришел на домен с www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+# Перенаправляем на тот же адрес, но без www
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# --- БЛОК №2: Правила для React Router (SPA) ---
+# Проверяем, что запрашиваемый URL - это не реальный файл
+RewriteCond %{REQUEST_FILENAME} !-f
+# И не реальная папка
+RewriteCond %{REQUEST_FILENAME} !-d
+# Если оба условия верны, отдаем index.html
+RewriteRule ^ index.html [QSA,L]
+
+# --- БЛОК ДЛЯ КЭШИРОВАНИЯ В БРАУЗЕРЕ ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>

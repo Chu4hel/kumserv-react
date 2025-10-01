@@ -39,7 +39,7 @@ const About = () => {
                             <h6 className="text-primary text-uppercase">// О нас //</h6>
                             <h1 className="mb-4"><span className="text-primary">Кумский сервис</span> - лучшее место для
                                 вашего авто</h1>
-                            <p className="mb-4">В Кумском сервисе мы стремимся предоставлять исключительные услуги по
+                            <p className="mb-4">Кумский сервис стремится предоставлять исключительные услуги по
                                 ремонту автомобилей. Наша команда опытных механиков использует только высококачественные
                                 запчасти и современное оборудование для обеспечения наилучшего ухода за вашим
                                 автомобилем. Мы гордимся своей работой и стремимся превзойти ваши ожидания при каждом
@@ -95,10 +95,10 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-                        <a href="/about"
-                           className={`btn btn-primary py-3 px-5 ${inView ? 'animated fadeIn' : 'animate-on-scroll'}`}
-                           style={inView ? {animationDelay: '1.1s'} : {}}>Читать далее<i
-                            className="fa fa-arrow-right ms-3"></i></a>
+                        {/*<a href="/about"*/}
+                        {/*   className={`btn btn-primary py-3 px-5 ${inView ? 'animated fadeIn' : 'animate-on-scroll'}`}*/}
+                        {/*   style={inView ? {animationDelay: '1.1s'} : {}}>Читать далее<i*/}
+                        {/*    className="fa fa-arrow-right ms-3"></i></a>*/}
                     </div>
                 </div>
             </div>

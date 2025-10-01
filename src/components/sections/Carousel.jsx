@@ -33,8 +33,8 @@ const Carousel = () => {
                                 <div className="col-10 col-lg-7 text-center text-lg-start">
                                     <h6 className="text-white text-uppercase mb-3 animated slideInDown">// Обслуживание
                                         автомобилей //</h6>
-                                    <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown">Квалифицированный
-                                        центр по ремонту автомобилей</h1>
+                                    <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown">Центр по
+                                        обслуживанию легковых авто</h1>
                                     <a href="/service" className="btn btn-primary py-3 px-5 animated slideInDown">Узнать
                                         больше<i className="fa fa-arrow-right ms-3"></i></a>
                                 </div>
@@ -57,8 +57,33 @@ const Carousel = () => {
                                 <div className="col-10 col-lg-7 text-center text-lg-start">
                                     <h6 className="text-white text-uppercase mb-3 animated slideInDown">// Обслуживание
                                         автомобилей //</h6>
-                                    <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown">Квалифицированный
-                                        центр кузовного ремонта</h1>
+                                    <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown">Впервые у нас?
+                                        Диагностика авто в подарок</h1>
+                                    <a href="/service" className="btn btn-primary py-3 px-5 animated slideInDown">Узнать
+                                        больше<i className="fa fa-arrow-right ms-3"></i></a>
+                                </div>
+                                <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
+                                    <picture>
+                                        <source srcSet="/img/carousel-2.webp" type="image/webp"/>
+                                        <source srcSet="/img/carousel-2.png" type="image/png"/>
+                                        <img className="img-fluid" src="/img/carousel-2.png" alt=""/>
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <img className="w-100" src="/img/carousel-bg-3.webp" alt="Image"/>
+                    <div className="carousel-caption d-flex align-items-center">
+                        <div className="container">
+                            <div className="row align-items-center justify-content-center justify-content-lg-start">
+                                <div className="col-10 col-lg-7 text-center text-lg-start">
+                                    <h6 className="text-white text-uppercase mb-3 animated slideInDown">// Обслуживание
+                                        автомобилей //</h6>
+                                    <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown">Заказываете
+                                        масло у нас? Замена в подарок</h1>
                                     <a href="/service" className="btn btn-primary py-3 px-5 animated slideInDown">Узнать
                                         больше<i className="fa fa-arrow-right ms-3"></i></a>
                                 </div>
