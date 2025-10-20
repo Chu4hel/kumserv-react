@@ -10,12 +10,12 @@
   This prevents the "peeking" of content from other slides.
 */
 .swiper-slide .carousel-caption {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .swiper-slide-active .carousel-caption {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* 
@@ -25,4 +25,29 @@
 */
 .main-carousel .carousel-caption {
     padding-bottom: 40px;
+}
+
+/* 
+  On smaller screens, increase the minimum height of the carousel slides
+  to give more vertical space for the text content.
+*/
+@media (max-width: 768px) {
+  .main-carousel .swiper-slide {
+    min-height: 500px;
+    height: auto; /* Ensure height is not fixed if content pushes it further */
+  }
+
+  /* 
+    Make the background image cover the entire slide area, effectively "zooming in"
+    and cropping the image to fit the new taller container.
+  */
+  .main-carousel .swiper-slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place it behind the caption */
+  }
 }
