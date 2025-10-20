@@ -2,6 +2,7 @@ import {defineConfig, loadEnv} from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 import sitemap from 'vite-plugin-sitemap'
+import {servicesData} from '@/data/servicesData.js';
 
 // https://vite.dev/config/
 export default defineConfig(({mode}) => {
@@ -9,6 +10,21 @@ export default defineConfig(({mode}) => {
     // process.cwd() указывает на корень проекта, где Vite будет искать .env файлы
     // Третий аргумент '' загружает ВСЕ переменные, а не только те, что с префиксом VITE_
     const env = loadEnv(mode, process.cwd(), '');
+
+    // Генерируем маршруты для детальных страниц услуг
+    const serviceRoutes = servicesData.map(service => `/service/${service.id}`);
+
+    // Собираем все динамические маршруты в один массив
+    const allDynamicRoutes = [
+        '/',
+        '/about',
+        '/booking',
+        '/contact',
+        '/service', // страница со списком всех услуг
+        '/testimonial',
+        '/privacy-policy',
+        ...serviceRoutes
+    ];
 
     return {
         // Используем опцию 'define' для глобальной замены переменных при сборке.
@@ -21,15 +37,8 @@ export default defineConfig(({mode}) => {
         plugins: [
             react(),
             sitemap({
-                hostname: 'https://кумский-сервис.рф',
-                dynamicRoutes: [
-                    '/about',
-                    '/booking',
-                    '/contact',
-                    '/services',
-                    '/testimonial',
-                    '/privacy-policy'
-                ],
+                hostname: 'https://xn----dtbikdcfar9bfeeq.xn--p1ai', // Correct punycode hostname
+                dynamicRoutes: allDynamicRoutes,
             }),
         ],
         resolve: {

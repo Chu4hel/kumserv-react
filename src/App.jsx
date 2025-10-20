@@ -5,6 +5,7 @@ import React, {useEffect, lazy, Suspense} from 'react'; // Import useEffect, laz
 import Topbar from '@/components/layout/Topbar';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import StructuredData from '@/components/common/StructuredData';
 import './App.css';
 
 // Ленивые импорты для страниц
@@ -58,6 +59,7 @@ function App() {
     return (
         <BrowserRouter>
             <PageTracker/>
+            <StructuredData/>
 
             <Topbar/>
             <Navbar/>

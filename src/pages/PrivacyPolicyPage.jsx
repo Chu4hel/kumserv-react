@@ -1,9 +1,14 @@
 import React from 'react';
+import SeoUpdater from '@/components/common/SeoUpdater';
 import PageHeader from '@/components/layout/PageHeader';
 
 const PrivacyPolicyPage = () => {
     return (
         <>
+            <SeoUpdater
+                title="Политика конфиденциальности - Автосервис 'Кумский'"
+                description="Политика в отношении обработки персональных данных автосервиса 'Кумский' (г. Чебоксары). Мы гарантируем сохранность и конфиденциальность ваших данных."
+            />
             <PageHeader title="Политика конфиденциальности" breadcrumb="Политика конфиденциальности"/>
             <div className="container-xxl py-5">
                 <div className="container">

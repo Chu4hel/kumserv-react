@@ -3,6 +3,7 @@ import {useParams, Link} from 'react-router-dom';
 import {servicesData} from '@/data/servicesData';
 import PageHeader from '@/components/layout/PageHeader';
 import ServiceImage from '@/components/common/ServiceImage';
+import SeoUpdater from '@/components/common/SeoUpdater';
 
 const ServiceDetailPage = () => {
     const {serviceId} = useParams();
@@ -11,6 +12,7 @@ const ServiceDetailPage = () => {
     if (!service) {
         return (
             <>
+                <SeoUpdater title="Услуга не найдена - Кумский Сервис"/>
                 <PageHeader title="Услуга не найдена"/>
                 <div className="container-xxl py-5">
                     <div className="container text-center">
@@ -26,6 +28,10 @@ const ServiceDetailPage = () => {
 
     return (
         <>
+            <SeoUpdater
+                title={`${service.title} - Услуги автосервиса в Чебоксарах | Кумский Сервис`}
+                description={service.shortDescription}
+            />
             <PageHeader title={service.title}/>
             <div className="container-xxl py-5">
                 <div className="container">

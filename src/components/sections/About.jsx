@@ -25,7 +25,7 @@ const About = () => {
                             style={inView ? {animationDelay: '0.1s'} : {}}
                         >
                             <img className="position-absolute img-fluid w-100 h-100" src="/img/about.jpg"
-                                 style={{objectFit: 'cover'}} alt=""/>
+                                 style={{objectFit: 'cover'}} alt="Интерьер автосервиса Кумский в Чебоксарах"/>
                             <div className="position-absolute top-0 end-0 mt-n4 me-n4 py-4 px-5"
                                  style={{background: 'rgba(0, 0, 0, .08)'}}>
                                 <h1 className="display-4 text-white mb-0">15 <span className="fs-4">Лет</span></h1>
