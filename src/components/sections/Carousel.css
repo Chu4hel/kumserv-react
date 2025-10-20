@@ -1,0 +1,28 @@
+/* Keep nav buttons on top */
+.swiper-button-prev,
+.swiper-button-next {
+    z-index: 20 !important;
+}
+
+/* 
+  Control caption visibility during slide transitions.
+  Only the caption of the active slide will be visible.
+  This prevents the "peeking" of content from other slides.
+*/
+.swiper-slide .carousel-caption {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.swiper-slide-active .carousel-caption {
+    opacity: 1;
+}
+
+/* 
+  Add more padding to the bottom of the caption.
+  This creates more space inside the caption area, pushing the button up
+  and preventing it from overlapping the pagination dots on slides with more text.
+*/
+.main-carousel .carousel-caption {
+    padding-bottom: 40px;
+}

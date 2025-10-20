@@ -8,15 +8,18 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
+import './Carousel.css';
+
 
 // import required modules
 import {Autoplay, EffectFade, Navigation, Pagination} from 'swiper/modules';
-import {carouselData} from '../../data/carouselData.js';
+import {carouselData} from '@/data/carouselData.js';
 
 const Carousel = () => {
     return (
         <div className="container-fluid p-0 mb-5">
             <Swiper
+                className="main-carousel"
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 spaceBetween={0}
                 slidesPerView={1}
