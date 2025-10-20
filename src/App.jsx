@@ -1,6 +1,5 @@
-import {BrowserRouter, Routes, Route, useLocation} from 'react-router-dom';
-import React, {useEffect, lazy, Suspense} from 'react'; // Import useEffect, lazy, Suspense
-
+import {BrowserRouter, Route, Routes, useLocation} from 'react-router-dom';
+import React, {lazy, Suspense, useEffect} from 'react'; // Import useEffect, lazy, Suspense
 // Статические импорты
 import Topbar from '@/components/layout/Topbar';
 import Navbar from '@/components/layout/Navbar';
@@ -46,16 +45,6 @@ function LoadingFallback() {
 }
 
 function App() {
-    useEffect(() => {
-        const spinner = document.getElementById('spinner');
-        if (spinner) {
-            // Add a small delay to ensure all content is rendered before hiding
-            setTimeout(() => {
-                spinner.classList.remove('show');
-            }, 500); // Adjust delay as needed
-        }
-    }, []); // Empty dependency array ensures this effect runs only once on mount
-
     return (
         <BrowserRouter>
             <PageTracker/>
