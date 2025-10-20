@@ -2,7 +2,7 @@ import {defineConfig, loadEnv} from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 import sitemap from 'vite-plugin-sitemap'
-import {servicesData} from '@/data/servicesData.js';
+import {servicesData} from './src/data/servicesData.js';
 
 // https://vite.dev/config/
 export default defineConfig(({mode}) => {
