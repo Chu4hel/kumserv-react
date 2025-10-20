@@ -24,7 +24,7 @@ const ContactInfo = () => {
                                  style={inView ? {animationDelay: '0.3s'} : {}}>
                                 <div className="bg-light d-flex flex-column justify-content-center p-4">
                                     <h5 className="text-uppercase">// Запись //</h5>
-                                    <p className="m-0"><i className="fa fa-envelope-open text-primary me-2"></i>booking@кумский-сервис.рф
+                                    <p className="m-0"><i className="fa fa-envelope-open text-primary me-2"></i><a href="mailto:booking@кумский-сервис.рф" className="text-body">booking@кумский-сервис.рф</a>
                                     </p>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@ const ContactInfo = () => {
                                  style={inView ? {animationDelay: '0.5s'} : {}}>
                                 <div className="bg-light d-flex flex-column justify-content-center p-4">
                                     <h5 className="text-uppercase">// Общие вопросы //</h5>
-                                    <p className="m-0"><i className="fa fa-envelope-open text-primary me-2"></i>info@кумский-сервис.рф
+                                    <p className="m-0"><i className="fa fa-envelope-open text-primary me-2"></i><a href="mailto:info@кумский-сервис.рф" className="text-body">info@кумский-сервис.рф</a>
                                     </p>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@ const ContactInfo = () => {
                                  style={inView ? {animationDelay: '0.7s'} : {}}>
                                 <div className="bg-light d-flex flex-column justify-content-center p-4">
                                     <h5 className="text-uppercase">// Техническая поддержка //</h5>
-                                    <p className="m-0"><i className="fa fa-envelope-open text-primary me-2"></i>tech@кумский-сервис.рф
+                                    <p className="m-0"><i className="fa fa-envelope-open text-primary me-2"></i><a href="mailto:tech@кумский-сервис.рф" className="text-body">tech@кумский-сервис.рф</a>
                                     </p>
                                 </div>
                             </div>

@@ -123,10 +123,10 @@ const PrivacyPolicyPage = () => {
                             </p>
                             <h3>7. Реквизиты и контактная информация Оператора</h3>
                             <p>
-                                Самозанятый <strong>Николаев Олег Андриянович</strong><br/>
-                                ИНН: <strong>212001941969</strong><br/>
-                                Адрес электронной почты для связи: <strong>noa1000@yandex.ru</strong><br/>
-                                Контактный телефон: <strong>+7 (927) 858-17-08</strong>
+                                <strong>Самозанятый:</strong> Николаев Олег Андриянович<br/>
+                                <strong>ИНН:</strong> 212001941969<br/>
+                                <strong>Адрес электронной почты для связи:</strong> <a href="mailto:noa1000@yandex.ru">noa1000@yandex.ru</a><br/>
+                                <strong>Контактный телефон:</strong> <a href="tel:+79278581708">+7 (927) 858-17-08</a>
                             </p>
                         </div>
                     </div>
