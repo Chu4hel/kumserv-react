@@ -29,7 +29,7 @@ const Services = () => {
                         style={inView ? {animationDelay: '0.1s'} : {}}
                     >
                         <h6 className="text-primary text-uppercase">// Наши услуги //</h6>
-                        <h1 className="mb-5">Наши популярные услуги</h1>
+                        <h1 className="mb-5">Наши популярные услуги в Чебоксарах</h1>
                     </div>
                     <div
                         className={`row g-4 ${inView ? 'animated fadeInUp' : 'animate-on-scroll'}`}
