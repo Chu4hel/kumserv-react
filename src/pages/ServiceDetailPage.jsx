@@ -10,6 +10,13 @@ const ServiceDetailPage = () => {
     const {serviceId} = useParams();
     const service = servicesData.find(s => s.id === parseInt(serviceId));
 
+    const baseUrl = 'https://xn----dtbikdcfar9bfeeq.xn--p1ai';
+    let ogImageUrl = `${baseUrl}/img/og-image.png`; // Default OG image
+    if (service && service.image) {
+        const imagePath = typeof service.image === 'object' ? service.image.fallback : service.image;
+        ogImageUrl = baseUrl + imagePath;
+    }
+
     if (!service) {
         return (
             <>
@@ -32,8 +39,10 @@ const ServiceDetailPage = () => {
             <SeoUpdater
                 title={`${service.title} - Услуги автосервиса в Чебоксарах | Кумский Сервис`}
                 description={service.shortDescription}
+                ogType="article"
+                ogImage={ogImageUrl}
             />
-            <ServiceSchema service={service} />
+            <ServiceSchema service={service}/>
             <PageHeader title={service.title}/>
             <div className="container-xxl py-5">
                 <div className="container">
