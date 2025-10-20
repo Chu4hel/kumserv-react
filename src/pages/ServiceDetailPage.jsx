@@ -4,6 +4,7 @@ import {servicesData} from '@/data/servicesData';
 import PageHeader from '@/components/layout/PageHeader';
 import ServiceImage from '@/components/common/ServiceImage';
 import SeoUpdater from '@/components/common/SeoUpdater';
+import ServiceSchema from '@/components/common/ServiceSchema';
 
 const ServiceDetailPage = () => {
     const {serviceId} = useParams();
@@ -32,6 +33,7 @@ const ServiceDetailPage = () => {
                 title={`${service.title} - Услуги автосервиса в Чебоксарах | Кумский Сервис`}
                 description={service.shortDescription}
             />
+            <ServiceSchema service={service} />
             <PageHeader title={service.title}/>
             <div className="container-xxl py-5">
                 <div className="container">

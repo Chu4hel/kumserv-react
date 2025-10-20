@@ -18,7 +18,11 @@ const StructuredData = () => {
       },
       "telephone": "+79278581708",
       "url": "https://xn----dtbikdcfar9bfeeq.xn--p1ai/",
-      "image": "https://xn----dtbikdcfar9bfeeq.xn--p1ai/img/og-image.png"
+      "image": "https://xn----dtbikdcfar9bfeeq.xn--p1ai/img/og-image.png",
+      "openingHours": [
+        "Mo-Fr 09:00-19:00",
+        "Sa-Su 10:00-17:00"
+      ]
     };
 
     if (script) {
