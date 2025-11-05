@@ -1,5 +1,6 @@
-import {BrowserRouter, Route, Routes, useLocation} from 'react-router-dom';
-import React, {lazy, Suspense, useEffect} from 'react'; // Import useEffect, lazy, Suspense
+import {Route, Routes, useLocation} from 'react-router-dom';
+import React, {useEffect} from 'react';
+
 // Статические импорты
 import Topbar from '@/components/layout/Topbar';
 import Navbar from '@/components/layout/Navbar';
@@ -7,15 +8,15 @@ import Footer from '@/components/layout/Footer';
 import StructuredData from '@/components/common/StructuredData';
 import './App.css';
 
-// Ленивые импорты для страниц
-const HomePage = lazy(() => import('@/pages/HomePage'));
-const AboutPage = lazy(() => import('@/pages/AboutPage'));
-const ServicePage = lazy(() => import('@/pages/ServicePage'));
-const ContactPage = lazy(() => import('@/pages/ContactPage'));
-const BookingPage = lazy(() => import('@/pages/BookingPage'));
-const TestimonialPage = lazy(() => import('@/pages/TestimonialPage'));
-const PrivacyPolicyPage = lazy(() => import('@/pages/PrivacyPolicyPage'));
-const ServiceDetailPage = lazy(() => import('@/pages/ServiceDetailPage'));
+// Прямые импорты страниц
+import HomePage from '@/pages/HomePage';
+import AboutPage from '@/pages/AboutPage';
+import ServicePage from '@/pages/ServicePage';
+import ContactPage from '@/pages/ContactPage';
+import BookingPage from '@/pages/BookingPage';
+import TestimonialPage from '@/pages/TestimonialPage';
+import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
+import ServiceDetailPage from '@/pages/ServiceDetailPage';
 
 // Компонент для отслеживания, который мы вставим внутрь BrowserRouter
 function PageTracker() {
@@ -33,39 +34,26 @@ function PageTracker() {
     return null; // Компонент ничего не рендерит, он просто выполняет логику
 }
 
-// Компонент-заглушка для Suspense, пока грузится страница
-function LoadingFallback() {
-    return (
-        <div className="w-100 vh-100 d-flex align-items-center justify-content-center">
-            <div className="spinner-border text-primary" style={{width: '3rem', height: '3rem'}} role="status">
-                <span className="sr-only">Загрузка...</span>
-            </div>
-        </div>
-    );
-}
-
 function App() {
     return (
-        <BrowserRouter>
+        <>
             <PageTracker/>
             <StructuredData/>
 
             <Topbar/>
             <Navbar/>
-            <Suspense fallback={<LoadingFallback/>}>
-                <Routes>
-                    <Route path="/" element={<HomePage/>}/>
-                    <Route path="/about" element={<AboutPage/>}/>
-                    <Route path="/service" element={<ServicePage/>}/>
-                    <Route path="/service/:serviceId" element={<ServiceDetailPage/>}/>
-                    <Route path="/contact" element={<ContactPage/>}/>
-                    <Route path="/booking" element={<BookingPage/>}/>
-                    <Route path="/testimonial" element={<TestimonialPage/>}/>
-                    <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
-                </Routes>
-            </Suspense>
+            <Routes>
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/about" element={<AboutPage/>}/>
+                <Route path="/service" element={<ServicePage/>}/>
+                <Route path="/service/:serviceId" element={<ServiceDetailPage/>}/>
+                <Route path="/contact" element={<ContactPage/>}/>
+                <Route path="/booking" element={<BookingPage/>}/>
+                <Route path="/testimonial" element={<TestimonialPage/>}/>
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
+            </Routes>
             <Footer/>
-        </BrowserRouter>
+        </>
     );
 }
 
