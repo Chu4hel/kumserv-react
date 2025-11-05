@@ -8,7 +8,7 @@ import ServiceSchema from '@/components/common/ServiceSchema';
 
 const ServiceDetailPage = () => {
     const {serviceId} = useParams();
-    const service = servicesData.find(s => s.id === parseInt(serviceId));
+    const service = servicesData.find(s => s.slug === serviceId);
 
     const baseUrl = 'https://xn----dtbikdcfar9bfeeq.xn--p1ai';
     let ogImageUrl = `${baseUrl}/img/og-image.png`; // Default OG image
@@ -76,7 +76,7 @@ const ServiceDetailPage = () => {
                                     {servicesData.map(s => (
                                         <li key={s.id}
                                             className={`list-group-item ${s.id === service.id ? 'active' : ''}`}>
-                                            <Link to={`/service/${s.id}`}
+                                            <Link to={`/service/${s.slug}`}
                                                   className={s.id === service.id ? 'text-white' : ''}>
                                                 <i className="fa fa-arrow-right text-primary me-2"></i>{s.title}
                                             </Link>

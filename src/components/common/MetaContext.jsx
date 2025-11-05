@@ -1,10 +1,20 @@
-import {createContext, useContext, useState} from 'react';
+import {createContext, useCallback, useContext, useState} from 'react';
 
 export const MetaContext = createContext(null);
 
 export const MetaProvider = ({children}) => {
     const [meta, setMeta] = useState({});
-    const value = {meta, setMeta};
+    const [schemas, setSchemas] = useState([]);
+
+    const updateMeta = useCallback((newMeta) => {
+        setMeta(newMeta);
+    }, []);
+
+    const addSchema = useCallback((schema) => {
+        setSchemas(prev => [...prev, schema]);
+    }, []);
+
+    const value = {meta, schemas, updateMeta, addSchema};
 
     return <MetaContext.Provider value={value}>{children}</MetaContext.Provider>;
 };
@@ -16,3 +26,4 @@ export const useMeta = () => {
     }
     return context;
 };
+

@@ -3,7 +3,7 @@ import {useLocation} from 'react-router-dom';
 import {useMeta} from './MetaContext';
 
 const SeoUpdater = ({title, description, ogType = 'website', ogImage}) => {
-    const {setMeta} = useMeta();
+    const {updateMeta} = useMeta();
     const location = useLocation();
 
     const getMetaData = () => {
@@ -25,11 +25,11 @@ const SeoUpdater = ({title, description, ogType = 'website', ogImage}) => {
     };
 
     if (typeof window === 'undefined') {
-        setMeta(getMetaData());
+        updateMeta(getMetaData());
     }
 
     useEffect(() => {
-        setMeta(getMetaData());
+        updateMeta(getMetaData());
     }, [title, description, ogType, ogImage, location.pathname]); // `setMeta` is stable
 
     return null; // This component doesn't render anything

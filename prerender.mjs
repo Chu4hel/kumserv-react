@@ -39,7 +39,7 @@ const distPath = toAbsolute('dist');
         const template = fs.readFileSync(toAbsolute('dist/index.html'), 'utf-8');
 
         for (const url of allRoutes) {
-            const {appHtml, meta} = render(url);
+            const {appHtml, meta, schemas} = render(url);
 
             let metaHtml = '';
             if (meta.description) {
@@ -54,6 +54,12 @@ const distPath = toAbsolute('dist');
                 metaHtml += `<meta property="og:type" content="${meta.og.type}" />\n`;
                 metaHtml += `<meta property="og:url" content="${meta.og.url}" />\n`;
                 metaHtml += `<meta property="og:image" content="${meta.og.image}" />\n`;
+            }
+
+            if (schemas && schemas.length > 0) {
+                schemas.forEach(schema => {
+                    metaHtml += `<script type="application/ld+json">${JSON.stringify(schema)}</script>\n`;
+                });
             }
 
             const html = template
