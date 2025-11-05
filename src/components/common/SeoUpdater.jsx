@@ -1,43 +1,36 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import {useEffect} from 'react';
+import {useLocation} from 'react-router-dom';
+import {useMeta} from './MetaContext';
 
-const SeoUpdater = ({ title, description, ogType = 'website', ogImage }) => {
+const SeoUpdater = ({title, description, ogType = 'website', ogImage}) => {
+    const {setMeta} = useMeta();
     const location = useLocation();
-    const canonicalUrl = `https://xn----dtbikdcfar9bfeeq.xn--p1ai${location.pathname}`;
+
+    const getMetaData = () => {
+        const canonicalUrl = `https://xn----dtbikdcfar9bfeeq.xn--p1ai${location.pathname}`;
+        const imageUrl = ogImage || 'https://xn----dtbikdcfar9bfeeq.xn--p1ai/img/og-image.png';
+
+        return {
+            title,
+            description,
+            canonicalUrl,
+            og: {
+                type: ogType,
+                url: canonicalUrl,
+                title,
+                description,
+                image: imageUrl,
+            },
+        };
+    };
+
+    if (typeof window === 'undefined') {
+        setMeta(getMetaData());
+    }
 
     useEffect(() => {
-        // Helper function to create or update a meta tag by property or name
-        const updateMetaTag = (attr, attrValue, content) => {
-            let element = document.querySelector(`meta[${attr}='${attrValue}']`);
-            if (!element) {
-                element = document.createElement('meta');
-                element.setAttribute(attr, attrValue);
-                document.head.appendChild(element);
-            }
-            element.setAttribute('content', content);
-        };
-
-        // Update Title
-        if (title) {
-            document.title = title;
-            updateMetaTag('property', 'og:title', title);
-        }
-
-        // Update Description
-        if (description) {
-            updateMetaTag('name', 'description', description);
-            updateMetaTag('property', 'og:description', description);
-        }
-
-        // Update other OG tags
-        updateMetaTag('property', 'og:type', ogType);
-        updateMetaTag('property', 'og:url', canonicalUrl);
-
-        // Update OG Image - use default if not provided
-        const imageUrl = ogImage || 'https://xn----dtbikdcfar9bfeeq.xn--p1ai/img/og-image.png';
-        updateMetaTag('property', 'og:image', imageUrl);
-
-    }, [title, description, ogType, ogImage, canonicalUrl]);
+        setMeta(getMetaData());
+    }, [title, description, ogType, ogImage, location.pathname]); // `setMeta` is stable
 
     return null; // This component doesn't render anything
 };
