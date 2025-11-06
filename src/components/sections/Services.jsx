@@ -81,7 +81,7 @@ const Services = () => {
                                                     Современное оборудование
                                                 </p>
                                                 <Link
-                                                    to={`/service/${service.id}`}
+                                                    to={`/service/${service.slug}`}
                                                     className="btn btn-primary py-3 px-5 mt-3"
                                                 >
                                                     Читать далее
