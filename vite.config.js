@@ -11,11 +11,11 @@ export default defineConfig(({mode}) => {
     // Третий аргумент '' загружает ВСЕ переменные, а не только те, что с префиксом VITE_
     const env = loadEnv(mode, process.cwd(), '');
 
-    // Генерируем маршруты для детальных страниц услуг
-    const serviceRoutes = servicesData.map(service => `/service/${service.id}`);
+    // Генерируем маршруты для детальных страниц услуг, используя slug
+    const serviceRoutes = servicesData.map(service => `/service/${service.slug}`);
 
-    // Собираем все динамические маршруты в один массив
-    const allDynamicRoutes = [
+    // Собираем все маршруты в один массив
+    const allRoutes = [
         '/',
         '/about',
         '/booking',
@@ -25,6 +25,9 @@ export default defineConfig(({mode}) => {
         '/privacy-policy',
         ...serviceRoutes
     ];
+
+    // Добавляем слеш в конец каждого маршрута, кроме корневого
+    const allDynamicRoutes = allRoutes.map(route => route === '/' ? route : `${route}/`);
 
     return {
         // Используем опцию 'define' для глобальной замены переменных при сборке.
